@@ -15,51 +15,51 @@ type Post = {
 
 const POSTS_PATH = join(process.cwd(), '_posts');
 
-function getPostFilePaths(): string[] {
-  return (
-    fs
-      .readdirSync(POSTS_PATH)
-      // Only include md files
-      .filter((path) => /\.md$/.test(path))
-  );
+function getPostFilePaths (): string[] {
+    return (
+        fs
+            .readdirSync(POSTS_PATH)
+        // Only include md files
+            .filter((path) => /\.md$/.test(path))
+    );
 }
 
-export function getPost(slug: string): Post {
-  const fullPath = join(POSTS_PATH, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
+export function getPost (slug: string): Post {
+    const fullPath = join(POSTS_PATH, `${slug}.md`);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(fileContents);
 
-  return { data, content };
+    return { data, content };
 }
 
-export function getPostItems(filePath: string, fields: string[] = []): Items {
-  const slug = filePath.replace(/\.md?$/, '');
-  const { data, content } = getPost(slug);
+export function getPostItems (filePath: string, fields: string[] = []): Items {
+    const slug = filePath.replace(/\.md?$/, '');
+    const { data, content } = getPost(slug);
 
-  const items: Items = {};
+    const items: Items = {};
 
-  // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      items[field] = slug;
-    }
-    if (field === 'content') {
-      items[field] = content;
-    }
+    // Ensure only the minimal needed data is exposed
+    fields.forEach((field) => {
+        if (field === 'slug') {
+            items[field] = slug;
+        }
+        if (field === 'content') {
+            items[field] = content;
+        }
 
-    if (data[field]) {
-      items[field] = data[field];
-    }
-  });
+        if (data[field]) {
+            items[field] = data[field];
+        }
+    });
 
-  return items;
+    return items;
 }
 
-export function getAllPosts(fields: string[] = []): Items[] {
-  const filePaths = getPostFilePaths();
-  const posts = filePaths
-    .map((filePath) => getPostItems(filePath, fields))
+export function getAllPosts (fields: string[] = []): Items[] {
+    const filePaths = getPostFilePaths();
+    const posts = filePaths
+        .map((filePath) => getPostItems(filePath, fields))
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-  return posts;
+        .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    return posts;
 }

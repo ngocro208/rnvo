@@ -1,3 +1,9 @@
 @tailwind base;
+
+@layer components {
+    .inner {
+        @apply m-auto;
+    }
+}
 @tailwind components;
 @tailwind utilities;

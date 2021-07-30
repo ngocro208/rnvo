@@ -1,0 +1,16 @@
+{
+  "title": "RNVo Blog",
+  "author": "Ro Ngoc Vo",
+  "headerTitle": "RNVo",
+  "description": "Ro Ngoc Vo's blog",
+  "language": "en-us",
+  "siteUrl": "https://rnvo.dev",
+  "siteRepo": "https://github.com/ngocro208/rnvo",
+  "image": "/static/images/avatar.jpeg",
+  "socialBanner": "",
+  "email": "ngocro208@gmail.com",
+  "github": "https://github.com/ngocro208",
+  "twitter": "https://twitter.com/ngocrovo",
+  "linkedin": "https://www.linkedin.com/in/rovn/",
+  "locale": "en-US"
+}

@@ -10,9 +10,9 @@ import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 	return (
-		<ThemeProvider>
-			<div className="max-w-5xl mx-auto h-screen px-6 flex flex-col lg:px-0 dark:bg-blue-600 ">
-				<header className="pt-12 border-b-1 border-gray-300">
+		<ThemeProvider attribute="class">
+			<div className="max-w-5xl mx-auto h-screen px-6 flex flex-col lg:px-0 bg-white text-black dark:bg-[#272822] dark:text-gray-200 ">
+				<header className="pt-12">
 					<div className="flex items-center justify-between pr-3">
 						<Link href="/">
 							<a className="text-3xl font-bold md:hidden">RNVo</a>

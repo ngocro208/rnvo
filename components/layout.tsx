@@ -10,7 +10,7 @@ export default function Layout({
 	home?: boolean;
 }): JSX.Element {
 	return (
-		<div className="mx-auto prose md:prose-lg lg:prose-xl">
+		<div className="mx-auto prose dark:prose-dark md:prose-md lg:prose-lg">
 			<Head>
 				<link rel="icon" href="/favicon.ico" />
 				<meta name="description" content="Ro Ngoc Vo - Blog" />

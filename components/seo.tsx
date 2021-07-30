@@ -21,8 +21,8 @@ export const SEO = {
 		],
 	},
 	twitter: {
-		handle: siteMetadata.twitter,
-		site: siteMetadata.twitter,
+		handle: siteMetadata.socials.twitter,
+		site: siteMetadata.socials.twitter,
 		cardType: "summary_large_image",
 	},
 	additionalMetaTags: [

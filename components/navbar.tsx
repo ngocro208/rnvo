@@ -14,6 +14,7 @@ export default function Navbar(): JSX.Element {
 
 	const isItemActive = (href: string): boolean =>
 		router.pathname.startsWith(href);
+	const isBlogPost = (name:string): boolean => name === "blog" && router.pathname.startsWith("/posts/");
 
 	return (
 		<nav className="py-8">
@@ -25,7 +26,7 @@ export default function Navbar(): JSX.Element {
 								<a
 									className={joinClassNames(
 										"block m-2 font-mono text-2xl text-center transition transform hover:text-indigo-500",
-										isItemActive(href)
+										isItemActive(href) || isBlogPost(name)
 											? "text-indigo-500"
 											: ""
 									)}

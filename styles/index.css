@@ -1,9 +1,12 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer components {
     .inner {
         @apply m-auto;
     }
+    .category-container {
+        @apply flex flex-1 mb-auto max-w-xl mx-auto py-8;
+    }
 }
-@tailwind components;
-@tailwind utilities;

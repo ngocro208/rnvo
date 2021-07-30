@@ -1,11 +1,22 @@
 module.exports = {
-  purge: ['./components/**/*.tsx', './pages/**/*.tsx'],
-  darkMode: 'media',
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
-}
+	mode: "jit",
+	purge: [
+		"./components/**/*.ts(x)?",
+		"./pages/**/*.ts(x)?",
+		"./lib/**.ts(x)?",
+	],
+	darkMode: "class",
+	theme: {
+		extend: {
+			borderWidth: {
+				1: "1px",
+			},
+		},
+	},
+	variants: {
+		extend: {
+			borderBottom: ["header"],
+		},
+	},
+	plugins: [require("@tailwindcss/typography")],
+};

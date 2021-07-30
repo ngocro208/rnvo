@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
-import { StaticPostData, StaticPostId } from "./types";
+import { StaticPostData, StaticPostSlug } from "./types";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -11,8 +11,8 @@ export function getSortedPostsData(): StaticPostData[] {
 	// Get file names under /posts
 	const fileNames = fs.readdirSync(postsDirectory);
 	const allPostsData = fileNames.map((fileName) => {
-		// Remove ".md" from file name to get id
-		const id = fileName.replace(/\.md$/, "");
+		// Remove ".md" from file name to get slug
+		const slug = fileName.replace(/\.md$/, "");
 
 		// Read markdown file as string
 		const fullPath = path.join(postsDirectory, fileName);
@@ -22,33 +22,27 @@ export function getSortedPostsData(): StaticPostData[] {
 		const matterResult = matter(fileContents);
 
 		return {
-			id,
+			slug,
 			...(matterResult.data as { date: string; title: string }),
 		};
 	});
 	// Sort posts by date
-	return allPostsData.sort((a, b) => {
-		if (a.date < b.date) {
-			return 1;
-		} else {
-			return -1;
-		}
-	});
+	return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getAllPostIds(): StaticPostId[] {
+export function getAllPostIds(): StaticPostSlug[] {
 	const fileNames = fs.readdirSync(postsDirectory);
 	return fileNames.map((fileName) => {
 		return {
 			params: {
-				id: fileName.replace(/\.md$/, ""),
+				slug: fileName.replace(/\.md$/, ""),
 			},
 		};
 	});
 }
 
-export async function getPostData(id: string): Promise<StaticPostData> {
-	const fullPath = path.join(postsDirectory, `${id}.md`);
+export async function getPostData(slug: string): Promise<StaticPostData> {
+	const fullPath = path.join(postsDirectory, `${slug}.md`);
 	const fileContents = fs.readFileSync(fullPath, "utf8");
 
 	// Use gray-matter to parse the post metadata section
@@ -62,7 +56,7 @@ export async function getPostData(id: string): Promise<StaticPostData> {
 
 	// Combine the data with the id and contentHtml
 	return {
-		id,
+		slug,
 		contentHtml,
 		...(matterResult.data as { date: string; title: string }),
 	};

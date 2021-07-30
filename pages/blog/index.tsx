@@ -1,26 +1,25 @@
 import Head from "next/head";
 import React from "react";
-import Footer from "../components/footer";
-import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import { GetStaticProps } from "next";
-import Date from "../components/date";
+import { getSortedPostsData } from "../../lib/posts";
+import Date from "../../components/date";
 
-export default function Home({
+export default function Posts({
 	allPostsData,
 }: {
 	allPostsData: {
 		date: string;
 		title: string;
-		id: string;
+		slug: string;
 	}[];
 }): JSX.Element {
 	return (
-		<div className="flex flex-1 mb-auto max-w-xl mx-auto">
-			{allPostsData.map(({ date, title, id }) => (
-				<article key={id}>
+		<div id="content" className="flex flex-1 mb-auto max-w-xl mx-auto">
+			{allPostsData.map(({ date, title, slug }) => (
+				<article key={slug}>
 					<h3>
-						<Link href={`/posts/${id}`}>
+						<Link href={`/posts/${encodeURIComponent(slug)}`}>
 							<a className="transition hover:text-indigo-500">
 								{title}
 							</a>

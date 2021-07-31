@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import { GetStaticProps } from "next";
-import { getSortedAlgoPostData } from "../../lib/pages";
-import BlogDate from "../../components/date";
+import BlogDate from "../components/date";
+import { getSortedPostsData } from "../lib/pages";
 
-export default function AlgorithmPage({
-	allAlgoPostsData,
+export default function Life({
+	postsData,
 }: {
-	allAlgoPostsData: {
+	postsData: {
 		date: string;
 		title: string;
 		slug: string;
@@ -15,13 +15,11 @@ export default function AlgorithmPage({
 }): JSX.Element {
 	return (
 		<div className="category-container">
-			{allAlgoPostsData &&
-				allAlgoPostsData.map(({ date, title, slug }) => (
+			{postsData &&
+				postsData.map(({ date, title, slug }) => (
 					<article key={slug}>
 						<h3>
-							<Link
-								href={`/algorithm/${encodeURIComponent(slug)}`}
-							>
+							<Link href={`/posts/${encodeURIComponent(slug)}`}>
 								<a className="transition hover:text-indigo-500">
 									{title}
 								</a>
@@ -39,10 +37,10 @@ export default function AlgorithmPage({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const allAlgoPostsData = getSortedAlgoPostData();
+	const postsData = getSortedPostsData();
 	return {
 		props: {
-			allAlgoPostsData,
+			postsData,
 		},
 	};
 };

@@ -1,36 +1,21 @@
 import "../styles/index.css";
 import type { AppProps } from "next/app";
-import Navbar from "../components/navbar";
-import Link from "next/link";
 import Footer from "../components/footer";
-import ThemeSwitch from "../components/themeSwitch";
 import { DefaultSeo } from "next-seo";
 import { SEO } from "../components/seo";
 import { ThemeProvider } from "next-themes";
+import Header from "../components/header";
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 	return (
 		<ThemeProvider attribute="class">
-			<div className="bg-white text-black dark:bg-[#272822] dark:text-gray-200">
-				<div className="max-w-5xl mx-auto h-screen px-6 flex flex-col lg:px-0 ">
-					<header className="pt-12">
-						<div className="flex items-center justify-between pr-3">
-							<Link href="/">
-								<a className="text-3xl font-bold md:hidden">
-									RNVo
-								</a>
-							</Link>
-							<Link href="/">
-								<a className="hidden md:block text-3xl font-bold">
-									Ro Ngoc Vo
-								</a>
-							</Link>
-							<ThemeSwitch />
-						</div>
-						<Navbar />
-					</header>
+			<div className="bg-white text-black dark:bg-choco dark:text-gray-200">
+				<div className="flex flex-col max-w-5xl min-h-screen mx-auto px-6 mb-auto divide-y divide-gray-300 lg:px-0">
+					<Header />
+
 					<DefaultSeo {...SEO} />
-					<div id="content" className="flex-1 my-8">
+
+					<div id="content" className="flex-auto">
 						<Component {...pageProps} />
 					</div>
 
@@ -40,4 +25,3 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 		</ThemeProvider>
 	);
 }
-export default MyApp;

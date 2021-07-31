@@ -4,8 +4,9 @@ import { useRouter } from "next/router";
 import { joinClassNames } from "../lib/utils";
 
 const links = [
-	{ name: "blog", href: "/blog" },
+	{ name: "tech", href: "/tech" },
 	{ name: "algorithm", href: "/algorithm" },
+	{ name: "life", href: "/life" },
 	{ name: "about", href: "/about" },
 ];
 
@@ -14,7 +15,8 @@ export default function Navbar(): JSX.Element {
 
 	const isItemActive = (href: string): boolean =>
 		router.pathname.startsWith(href);
-	const isBlogPost = (name:string): boolean => name === "blog" && router.pathname.startsWith("/posts/");
+	const isBlogPost = (name: string): boolean =>
+		name === "tech" && router.pathname.startsWith("/posts/");
 
 	return (
 		<nav className="py-8">

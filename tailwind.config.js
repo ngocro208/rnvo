@@ -23,6 +23,7 @@ module.exports = {
 					css: {
 						a: {
 							textDecoration: "none",
+							color: theme("colors.indigo.400"),
 						},
 					},
 				},

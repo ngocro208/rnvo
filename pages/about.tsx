@@ -11,7 +11,7 @@ export default function About(): JSX.Element {
 				description={`About me - ${siteMetadata.author}`}
 				url={`${siteMetadata.siteUrl || ""}/about`}
 			/>
-			<div className="flex flex-col items-center xl:flex-row space-y-2 xl:justify-around xl:  xl:space-y-0">
+			<div className="flex flex-col items-center xl:items-start xl:flex-row space-y-2 xl:justify-around xl:space-y-0">
 				<div className="flex flex-col items-center pt-8 space-x-2">
 					<Image
 						src={siteMetadata.image}
@@ -47,8 +47,8 @@ export default function About(): JSX.Element {
 				<div className="lg:flex-0.7 pt-8 pb-8 prose dark:prose-dark md:prose-md lg:prose-lg max-w-none">
 					<p>Hi Mate,</p>
 					<p>
-						Welcome to my blog where I share codes, algorithm (most
-						are{" "}
+						Welcome to my blog where I share codes, my feelings and
+						algorithm; most are{" "}
 						<a
 							target="_blank"
 							href="https://leetcode.com/"
@@ -57,7 +57,7 @@ export default function About(): JSX.Element {
 						>
 							Leetcode
 						</a>{" "}
-						problems) and my feelings.
+						problems.
 					</p>
 				</div>
 			</div>

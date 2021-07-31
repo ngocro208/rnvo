@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import BlogDate from "../components/date";
 import { getSortedPostsData } from "../lib/pages";
 
-export default function Blog({
+export default function Life({
 	postsData,
 }: {
 	postsData: {

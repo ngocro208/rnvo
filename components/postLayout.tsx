@@ -9,7 +9,7 @@ export default function PostLayout({
 	path?: string;
 }): JSX.Element {
 	return (
-		<div className="mx-auto prose dark:prose-dark md:prose-md lg:prose-lg">
+		<div className="mx-auto prose dark:prose-dark md:prose-md lg:prose-lg overflow-y-auto">
 			<main>{children}</main>
 			<div>
 				<Link href={path}>

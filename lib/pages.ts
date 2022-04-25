@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
-import { StaticPostData, StaticPostSlug } from "./types";
+import { PageData, StaticPostData, StaticPostSlug } from "./types";
 
 const postsDirectory = path.join(process.cwd(), "data/posts");
 const algoPostsDirectory = path.join(process.cwd(), "data/algoPosts");
@@ -44,7 +44,7 @@ function getSortedPagesData(directory: string): StaticPostData[] {
 
 		return {
 			slug,
-			...(matterResult.data as { date: string; title: string }),
+			...(matterResult.data as PageData),
 		};
 	});
 	return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -76,6 +76,6 @@ async function getPageData(
 	return {
 		slug,
 		contentHtml,
-		...(matterResult.data as { date: string; title: string }),
+		...(matterResult.data as PageData),
 	};
 }

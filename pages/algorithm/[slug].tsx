@@ -2,26 +2,26 @@ import PostLayout from "../../components/postLayout";
 import { getAlgoPostData, getAllAlgoPostIds } from "../../lib/pages";
 import Head from "next/head";
 import { GetStaticProps, GetStaticPaths } from "next";
+import { StaticPostData } from "../../lib/types";
 
 export default function AlgoPost({
-	algoPostData,
-}: {
-	algoPostData: {
-		title: string;
-		date: string;
-		contentHtml: string;
-	};
-}): JSX.Element {
+	date,
+	title,
+	url,
+	contentHtml,
+}: StaticPostData): JSX.Element {
 	return (
 		<PostLayout path="/algorithm">
 			<Head>
-				<title>{algoPostData.title} - RNVo Blog</title>
+				<title>{title} - RNVo Blog</title>
 			</Head>
 			<article>
-				<h2>{algoPostData.title}</h2>
+				<h2>
+					<a href={url}>{title}</a>
+				</h2>
 				<div
 					dangerouslySetInnerHTML={{
-						__html: algoPostData.contentHtml,
+						__html: contentHtml || "",
 					}}
 				/>
 			</article>
@@ -40,8 +40,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const algoPostData = await getAlgoPostData(params?.slug as string);
 	return {
-		props: {
-			algoPostData,
-		},
+		props: algoPostData,
 	};
 };

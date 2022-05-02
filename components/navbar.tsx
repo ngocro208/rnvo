@@ -19,7 +19,7 @@ export default function Navbar(): JSX.Element {
 
 	return (
 		<nav className="py-8">
-			<ul className="flex flex-wrap justify-around">
+			<ul className="flex flex-wrap justify-aound">
 				{links.map(({ name, href }) => {
 					return (
 						<li key={name}>

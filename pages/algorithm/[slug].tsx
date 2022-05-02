@@ -1,7 +1,6 @@
 import PostLayout from "../../components/postLayout";
 import { getAlgoPostData, getAllAlgoPostIds } from "../../lib/pages";
 import Head from "next/head";
-import Date from "../../components/date";
 import { GetStaticProps, GetStaticPaths } from "next";
 
 export default function AlgoPost({
@@ -20,9 +19,6 @@ export default function AlgoPost({
 			</Head>
 			<article>
 				<h2>{algoPostData.title}</h2>
-				<div>
-					<Date dateString={algoPostData.date} />
-				</div>
 				<div
 					dangerouslySetInnerHTML={{
 						__html: algoPostData.contentHtml,

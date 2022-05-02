@@ -3,11 +3,11 @@ title: "Longest Repeating Character Replacement"
 date: "2022-04-24"
 ---
 
-## 3.1 Summary
+## Summary
 
 Store the frequency of char into map then get Max
 
-## 3.2. Code
+## Code
 
 ```js
 /**

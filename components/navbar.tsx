@@ -4,9 +4,8 @@ import { useRouter } from "next/router";
 import { joinClassNames } from "../lib/utils";
 
 const links = [
-	{ name: "tech", href: "/tech" },
+	{ name: "posts", href: "/posts" },
 	{ name: "algorithm", href: "/algorithm" },
-	{ name: "life", href: "/life" },
 	{ name: "about", href: "/about" },
 ];
 

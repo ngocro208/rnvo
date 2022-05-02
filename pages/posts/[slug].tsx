@@ -20,9 +20,6 @@ export default function Post({
 			</Head>
 			<article>
 				<h2>{postData.title}</h2>
-				<div>
-					<Date dateString={postData.date} />
-				</div>
 				<div
 					dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
 				/>

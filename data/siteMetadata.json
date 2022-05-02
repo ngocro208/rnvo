@@ -5,14 +5,14 @@
   "description": "Ro Ngoc Vo's blog",
   "language": "en-us",
   "siteUrl": "",
-  "siteRepo": "https://github.com/ngocro208/rnvo",
+  "siteRepo": "https://github.com/rnvo/rnvo-blog",
   "image": "/static/images/avatar.jpg",
   "socialBanner": "",
   "socials": {
     "email": "ngocro208@gmail.com",
-    "github": "https://github.com/ngocro208",
-    "twitter": "https://twitter.com/ngocrovo",
-    "linkedin": "https://www.linkedin.com/in/rovn/"
+    "github": "https://github.com/rnvo",
+    "twitter": "https://twitter.com/rnvo208",
+    "linkedin": "https://www.linkedin.com/in/rnvo/"
   },
   "locale": "en-US"
 }
